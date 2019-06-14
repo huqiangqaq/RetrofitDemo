@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    defaultConfig {
+        applicationId "com.example.huqiang.retrofitdemo"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.releaseVersionCode
+        versionName rootProject.releaseVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // API服务器URL
+        buildConfigField 'String', 'API_SERVER_URL', '"https://www.wanandroid.com"'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    // Retrofit && OKHttp && Gson
+//    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+//    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+//    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+//    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+//    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+//    implementation 'org.immutables:gson:2.2.12'
+//
+//    // RxJava
+//    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+//    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+////    implementation 'io.reactivex:rxandroid:1.2.1'
+////    implementation 'io.reactivex:rxjava:1.3.0'
+//
+//    // RxLifecycle
+//    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+//    implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.1'
+//    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+////    implementation 'com.trello:rxlifecycle:1.0'
+////    implementation 'com.trello:rxlifecycle-components:1.0'
+//    //cookie持久化
+////    compile 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
+    implementation 'com.orhanobut:hawk:2.0.1'
+    implementation 'com.github.ybq:Android-SpinKit:1.1.0'
+    implementation project(path: ':baseLib')
+}
